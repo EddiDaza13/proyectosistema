@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inventario</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1 class="titulo-empresa">MOTOGO CALI</h1>
+    <p class="subtitulo">TIENDA EN LÍNEA</p>
+  </header>
+
+  <main class="container">
+    <h2>INVENTARIO</h2>
+    <table id="inventarioTable">
+      <thead>
+        <tr>
+          <th>Código producto</th>
+          <th>Descripción</th>
+          <th>#Artículos</th>
+          <th>Costo compra und.</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <form id="formInventario">
+      <input type="text" id="codigo" placeholder="Código producto" required />
+      <input type="text" id="descripcion" placeholder="Descripción" required />
+      <input type="number" id="cantidad" placeholder="Cantidad" required />
+      <input type="number" id="precio" placeholder="Precio unitario" required />
+      <div class="botones">
+        <button type="submit">AÑADIR PRODUCTO</button>
+        <button type="button" onclick="limpiarTabla()">ACTUALIZAR</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

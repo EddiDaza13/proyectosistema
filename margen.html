@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Margen de Ganancia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>MOTOGO CALI<br><span class="subtitulo">TIENDA EN LÍNEA</span></h1>
+
+    <h2>MARGEN DE GANANCIA</h2>
+    <div class="porcentaje-control">
+      <label for="margen">%</label>
+      <input type="number" id="margen" value="20" min="0" max="100"> 
+      <button onclick="actualizarPrecios()">ACTUALIZAR</button>
+    </div>
+
+    <table id="tablaGanancia">
+      <thead>
+        <tr>
+          <th>Codigo producto</th>
+          <th>Descripción</th>
+          <th>Costo compra und.</th>
+          <th>% Establecido</th>
+          <th>Precio venta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>N00001</td>
+          <td>Lenovo XT88</td>
+          <td class="costo">45500</td>
+          <td class="porcentaje">20</td>
+          <td class="precio-venta"></td>
+        </tr>
+        <tr>
+          <td colspan="5"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function actualizarPrecios() {
+      const margen = parseFloat(document.getElementById('margen').value);
+      const filas = document.querySelectorAll('#tablaGanancia tbody tr');
+
+      filas.forEach(fila => {
+        const costoCelda = fila.querySelector('.costo');
+        const porcentajeCelda = fila.querySelector('.porcentaje');
+        const precioVentaCelda = fila.querySelector('.precio-venta');
+
+        if (costoCelda && porcentajeCelda && precioVentaCelda) {
+          const costo = parseFloat(costoCelda.textContent);
+          porcentajeCelda.textContent = margen;
+          const venta = costo + (costo * (margen / 100));
+          precioVentaCelda.textContent = venta.toLocaleString('es-CO');
+        }
+      });
+    }
+
+    window.onload = actualizarPrecios;
+  </script>
+</body>
+</html>
